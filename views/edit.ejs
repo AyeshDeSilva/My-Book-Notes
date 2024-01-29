@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+<section id="edit" class="container">
+    <h1 class="heading">Edit Notes</h1>
+    <form class="add-edit-form" action="/edit" method="post">
+
+        <input type="text" name="editTitle" placeholder="Title" autocomplete="off">
+        <input type="text" name="editIsbn" placeholder="ISBN Number" autocomplete="off">
+        <input type="number" name="editRating" placeholder="Rate" autocomplete="off">
+        <textarea name="editReview" placeholder="Review" autocomplete="off"></textarea>
+        <button class="button" type="submit" name="publish">Edit Book</button>
+
+    </form>
+</section>
+<%- include("partials/footer.ejs")  %>

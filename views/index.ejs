@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %>
+    
+    <div class="container">
+        
+        <h1 class="heading">Book Notes</h1>
+        
+        <ol>
+
+            <div class="book-lists">
+
+                <div class="cover-image">
+                    <img class="cover" src="https://s26162.pcdn.co/wp-content/uploads/2018/12/71QvtjZxesL.jpg" width="100px" alt="book cover image">
+                </div>
+
+
+                <div class="book-info">
+
+                    <h2>Book Name</h2>
+
+                    <p class="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem velit, luctus quis cursus a, ultrices sit amet nunc</p>
+
+                    <p class="rating">Rating: *****</p>
+
+
+                    <form class="delete" action="/delete" method="post">
+
+                        <input type="hidden" name="isbn" value="">
+
+                        <button class="delete-book-btn" type="submit" name="delete">Delete</button>
+
+                    </form>
+
+                    <form class="edit" action="/edit" method="get">
+
+                        <input type="hidden" name="isbn" value="">
+
+                        <button class="edit-book-btn" type="submit" name="edit">Edit</button>
+
+                    </form>
+                
+                </div>
+            
+            </div>
+        
+        </ol>
+    
+    </div>
+
+<%- include("partials/footer.ejs")  %>

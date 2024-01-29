@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+<section id="add" class="container">
+    <h1 class="heading">Add New Books</h1>
+    <form class="add-edit-form" action="/add" method="post">
+
+        <input type="text" name="newTitle" placeholder="Title" autocomplete="off">
+        <input type="text" name="newIsbn" placeholder="ISBN Number" autocomplete="off">
+        <input type="number" name="newRating" placeholder="Rating" autocomplete="off">
+        <textarea name="newReview" placeholder="Review" rows="7" autocomplete="off"></textarea>
+        <button class="button" type="submit" name="publish">Add Book</button>
+    </form>
+</section>
+
+<%- include("partials/footer.ejs")  %>

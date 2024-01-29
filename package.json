@@ -1,0 +1,12 @@
+{
+  "name": "booknotes",
+  "version": "1.0.0",
+  "description": "A Website to search, add, review and rate books that you read to your list",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ayesh De Silva",
+  "license": "ISC"
+}
