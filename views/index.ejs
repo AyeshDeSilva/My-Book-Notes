@@ -6,42 +6,49 @@
         
         <ol>
 
+            <% for(let book of bookLists) { %>
+
             <div class="book-lists">
 
                 <div class="cover-image">
-                    <img class="cover" src="https://s26162.pcdn.co/wp-content/uploads/2018/12/71QvtjZxesL.jpg" width="100px" alt="book cover image">
+                    <img class="cover" src="https://covers.openlibrary.org/b/isbn/<%= book.id %>-M.jpg" width="100px" alt="book cover image of <%= book.title %>">
+                    <!-- <img src="https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg-->
                 </div>
 
 
                 <div class="book-info">
 
-                    <h2>Book Name</h2>
+                    <h2><%= book.title %></h2>
 
-                    <p class="review">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem velit, luctus quis cursus a, ultrices sit amet nunc</p>
+                    <h3>By: <%= book.author %></h3>
 
-                    <p class="rating">Rating: *****</p>
+                    <p class="review"><%= book.review %></p>
 
+                    <p class="rating">Rating: <%= book.rating  %></p>
 
-                    <form class="delete" action="/delete" method="post">
-
-                        <input type="hidden" name="isbn" value="">
-
-                        <button class="delete-book-btn" type="submit" name="delete">Delete</button>
-
-                    </form>
 
                     <form class="edit" action="/edit" method="get">
 
-                        <input type="hidden" name="isbn" value="">
+                        <input type="hidden" name="isbn" value=<%= book.id %> >
 
-                        <button class="edit-book-btn" type="submit" name="edit">Edit</button>
+                        <button class="edit-book-btn" type="submit" name="editBookId">Edit</button>
+
+                    </form>
+                    
+                    <form class="delete" action="/delete" method="post">
+
+                        <input type="hidden" name="isbn" value=<%= book.id %> >
+
+                        <button class="delete-book-btn" type="submit" name="deleteBookId">Delete</button>
 
                     </form>
                 
                 </div>
             
             </div>
-        
+
+        <% } %>
+
         </ol>
     
     </div>
