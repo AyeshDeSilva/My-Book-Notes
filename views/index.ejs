@@ -11,7 +11,7 @@
             <div class="book-lists">
 
                 <div class="cover-image">
-                    <img class="cover" src="https://covers.openlibrary.org/b/isbn/<%= book.id %>-M.jpg" width="100px" alt="book cover image of <%= book.title %>">
+                    <img class="cover" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg"  alt="book cover image of <%= book.title %>">
                     <!-- <img src="https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg-->
                 </div>
 
@@ -29,7 +29,7 @@
 
                     <form class="edit" action="/edit" method="get">
 
-                        <input type="hidden" name="isbn" value=<%= book.id %> >
+                        <input type="hidden" name="isbn" value=<%= book.isbn %> >
 
                         <button class="edit-book-btn" type="submit" name="editBookId">Edit</button>
 
@@ -37,7 +37,7 @@
                     
                     <form class="delete" action="/delete" method="post">
 
-                        <input type="hidden" name="isbn" value=<%= book.id %> >
+                        <input type="hidden" name="id" value=<%= book.id  %> >
 
                         <button class="delete-book-btn" type="submit" name="deleteBookId">Delete</button>
 

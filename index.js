@@ -145,13 +145,13 @@ app.post("/edited", async (req, res) => {
 
 app.post("/delete", async (req, res) => {
 
-    const deleteIsbn = req.query.isbn;
+    const deleteId = req.body.id;
 
     try{
 
-        const result = db.query("Delete from booknote where isbn = $1", [deleteIsbn] );
+        const result = await db.query("Delete from booknote where id = $1", [deleteId] );
 
-        res.render("/");
+        res.redirect("/");
 
     }catch(err){
 
