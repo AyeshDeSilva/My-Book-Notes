@@ -3,10 +3,11 @@ import express from "express";
 import pg from "pg";
 
 
+//Initilize express and port number
 const app = express();
 const port = 3000;
 
-
+//Initlize db information to connect
 const db = new pg.Client({
     user: "postgres",
     host: "localhost",
@@ -17,11 +18,14 @@ const db = new pg.Client({
 
 db.connect();
 
+//Middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+//Store book data in the array
 let books = [];
 
+//Route the data in the database to render in the main page
 app.get("/", async (req, res) => {
 
     try{
@@ -41,12 +45,11 @@ app.get("/", async (req, res) => {
 
 });
 
-
+//Route to render the add page
 app.get("/add", async (req, res) => { res.render("add.ejs");});
 
-app.get("/edit", async (req, res) => {res.render("edit.ejs");});
 
-
+//Route to render the book lists from recent to least recent 
 app.get("/recent", async (req, res) => {
 
     try{
@@ -65,6 +68,7 @@ app.get("/recent", async (req, res) => {
     }
 });
 
+//Route to render the book lists from highest to lowest 
 app.get("/rating", async (req, res) => {
     
     try{
@@ -83,7 +87,7 @@ app.get("/rating", async (req, res) => {
     }
 });
 
-
+//Route to insert data to the database given from the form
 app.post("/add", async (req, res) => {
 
     const book = req.body;
@@ -104,17 +108,18 @@ app.post("/add", async (req, res) => {
 
 });
 
-app.post("/edit", async (req, res) => {
+//Route to render the informtaion into the edit form by clicking the edit button
+app.get("/edit", async (req, res) => {
 
-    const bookIsbn = req.query.isbn
+    const id = req.query.id;
 
 
     try{
 
-        const result = await db.query("Select * from booknote where isbn = $1", [bookIsbn]);
+        const result = await db.query("Select * from booknote where id = $1", [id]);
         const bookEdit = result.rows[0];
 
-        res.render("edit.ejs", {bookToEdit: bookEdit});
+        res.render("edit.ejs", {bookEdit});
 
     }catch(err){
         
@@ -122,6 +127,7 @@ app.post("/edit", async (req, res) => {
     }
 })
 
+//Route to submit the edit form to update the data and redirect updated information to the main page
 app.post("/edited", async (req, res) => {
 
     const book = req.body;
@@ -129,7 +135,7 @@ app.post("/edited", async (req, res) => {
 
     try {
 
-        const result = await db.query("Update booknotes set title=$1, author=$2, review=$3, rating=$4 where isbn = $5",
+        const result = await db.query("Update booknote set title=$1, author=$2, review=$3, rating=$4 where isbn = $5",
             [book.editTitle, book.editAuthor,  book.editReview, book.editRating, book.editIsbn]
         );
 
@@ -142,7 +148,7 @@ app.post("/edited", async (req, res) => {
 
 });
 
-
+//Route to delete an id of the book
 app.post("/delete", async (req, res) => {
 
     const deleteId = req.body.id;
@@ -159,7 +165,7 @@ app.post("/delete", async (req, res) => {
     }
 });
 
-
+//Starts the server on the port that was intialized
 app.listen(port, () => {
     console.log("Listening to port " + port);
 });

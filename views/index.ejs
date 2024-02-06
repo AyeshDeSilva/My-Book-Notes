@@ -1,5 +1,7 @@
+<!--Header code is in partials folder-->
 <%- include("partials/header.ejs") %>
     
+
     <div class="container">
         
         <h1 class="heading">Book Notes</h1>
@@ -10,12 +12,13 @@
 
             <div class="book-lists">
 
+                <!--Div for the image cover of the book-->
                 <div class="cover-image">
                     <img class="cover" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg"  alt="book cover image of <%= book.title %>">
                     <!-- <img src="https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg-->
                 </div>
 
-
+                <!--Div Section where the information that you submit gets rendered-->
                 <div class="book-info">
 
                     <h2><%= book.title %></h2>
@@ -26,15 +29,16 @@
 
                     <p class="rating">Rating: <%= book.rating  %></p>
 
-
+                    <!--Edit form: input is hidden, the button links you to the edit page by id-->
                     <form class="edit" action="/edit" method="get">
 
-                        <input type="hidden" name="isbn" value=<%= book.isbn %> >
+                        <input type="hidden" name="id" value=<%= book.id%> >
 
                         <button class="edit-book-btn" type="submit" name="editBookId">Edit</button>
 
                     </form>
                     
+                    <!--Delete button deletes the book by id-->
                     <form class="delete" action="/delete" method="post">
 
                         <input type="hidden" name="id" value=<%= book.id  %> >
@@ -53,4 +57,5 @@
     
     </div>
 
+<!--Footer code is in partials folder-->
 <%- include("partials/footer.ejs")  %>

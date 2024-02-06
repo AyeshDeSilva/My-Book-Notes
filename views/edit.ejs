@@ -1,16 +1,31 @@
 <%- include("partials/header.ejs") %>
 
+<!--Container class for the edit form-->
 <section id="edit" class="container">
+
     <h1 class="heading">Edit Notes</h1>
+
     <form class="add-edit-form" action="/edited" method="post">
 
-        <input type="text" name="editTitle" placeholder="Title" value=<%= bookToEdit.title %> autocomplete="off">
-        <input type="text" name="editAuthor" placeholder="Author" value=<%= bookToEdit.author %> autocomplete="on">
-        <input type="text" name="editIsbn" placeholder="ISBN Number" value=<%= bookToEdit.isbn %> autocomplete="off">
-        <input type="number" name="editRating" placeholder="Rate" value=<%= bookToEdit.rating %> autocomplete="off">
-        <textarea name="editReview" placeholder="Review" rows="7" autocomplete="off"><%= bookToEdit.review %></textarea>
-        <button class="button" type="submit" name="publish">Edit Book</button>
+        <!--Edit title input. Is required-->
+        <input type="text" name="editTitle" placeholder="Title" value="<%= bookEdit.title %>" autocomplete="off" required>
+
+        <!--Edit author name input. Is required-->
+        <input type="text" name="editAuthor" placeholder="Author" value="<%= bookEdit.author %>" autocomplete="on" required>
+
+        <!--Edit ISBN number input. Is required-->
+        <input type="text" name="editIsbn" placeholder="ISBN Number" value="<%= bookEdit.isbn %>" autocomplete="off" required>
+
+        <!-- Edit rating input. Can submit from 1 - 5 and float numbers are included. Is required-->
+        <input type="number" name="editRating" placeholder="Rate" min="1" max="5" step=".01" value="<%= bookEdit.rating %>" autocomplete="off" required>
+
+        <!--Edit review input. Not Required-->
+        <textarea name="editReview" placeholder="Review" rows="7" autocomplete="off"><%= bookEdit.review %></textarea>
+
+        <!--Edit submit button-->
+        <button class="button" type="submit">Edit Book</button>
 
     </form>
+
 </section>
 <%- include("partials/footer.ejs")  %>

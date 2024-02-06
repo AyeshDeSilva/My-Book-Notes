@@ -108,7 +108,8 @@ header ul li:hover ul.drop-down{
 
 /** inside container in index */
 
-.heading{
+.heading {
+
     text-align: center;
     font-size: 2.3rem;
     padding: 20px;
@@ -137,6 +138,7 @@ header ul li:hover ul.drop-down{
 } */
 
 .cover {
+
     height: 250px;
     width: 140px;
     padding: 4.5px;
@@ -151,6 +153,7 @@ header ul li:hover ul.drop-down{
 }
 
 .book-info{
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,6 +163,7 @@ header ul li:hover ul.drop-down{
 } 
 
 .review{
+    
     text-align: center;
     font-size: 14pt;
     margin: 10px 0 10px 0;
@@ -183,11 +187,12 @@ header ul li:hover ul.drop-down{
     margin-right: 10px;
     border-radius: 4px;
     cursor: pointer;
-    box-shadow: inset 2px 2px 10px #9fe4ff;
+    box-shadow: inset 2px 2px 10px #00ff4c;
     border: none;
     font-weight: bold;
     color: #003346;
-    background-color: rgb(3, 97, 15);
+    background-color: rgb(30, 151, 8);
+    width: 200px;
 
 }
 
@@ -237,14 +242,42 @@ h3{
 }
 
 
-
 /** Footer**/
 footer{
-    margin-top: 100px;
-    font-weight: bold;
+    
+    margin-top: 30px;
+    padding: 5px;
+    font-weight: bolder;
     text-align: center;
+    color: black;
+    background: rgb(11, 136, 116);
+
 }
 
 footer > .reference{
-    margin-top: 10px;
+
+    margin-top: 10px;   
+}
+
+
+/** Smaller screen size*/
+@media screen and (max-width:1200px) {
+
+
+    h2, h3, .review {
+
+        font-size: 12pt;
+    }
+
+    .cover {
+
+        height: 250px;
+        width: 110px;
+    }
+
+    .delete-book-btn, .edit-book-btn{
+        width: 100px;
+    }
+
+
 }
