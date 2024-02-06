@@ -139,8 +139,8 @@ header ul li:hover ul.drop-down{
 
 .cover {
 
-    height: 250px;
-    width: 140px;
+    height: fit-content;
+    width: fit-content;
     padding: 4.5px;
     border-radius: 4px;
     margin-left: 10px;
@@ -163,7 +163,7 @@ header ul li:hover ul.drop-down{
 } 
 
 .review{
-    
+
     text-align: center;
     font-size: 14pt;
     margin: 10px 0 10px 0;
@@ -261,7 +261,7 @@ footer > .reference{
 
 
 /** Smaller screen size*/
-@media screen and (max-width:1200px) {
+@media screen and (max-width:900px) {
 
 
     h2, h3, .review {
@@ -271,12 +271,18 @@ footer > .reference{
 
     .cover {
 
-        height: 250px;
-        width: 110px;
+        
+        height: fit-content;
+        width: fit-content;
     }
 
     .delete-book-btn, .edit-book-btn{
         width: 100px;
+    }
+
+
+    .book-lists{
+        flex-direction: column;
     }
 
 
