@@ -14,4 +14,4 @@ You can also sort by recency and ratings of your books
 * Clone repository
 * Install dependencies using "npm i"
 * Create a database and create a table in PostgreSQL pgAdim 4. You can create a table from scratch or use my SQL in the booknote.sql file part of the repository
-* Reconfigure the database connection settings with your own settings
+* Reconfigure the database connection settings with your own database settings
