@@ -1,5 +1,5 @@
 # My Book Lists Project Documentation
-* The project was built using HTML, CSS, Node.js, EJS, Express.js, SQL, PostgreSQL and https://openlibrary.org/dev/docs/api/covers API to get the cover of the book.
+The project was built using HTML, CSS, Node.js, EJS, Express.js, SQL, PostgreSQL and https://openlibrary.org/dev/docs/api/covers API to get the cover of the book.
   
 # Description
 This is a personal project to practice Node.js using external API and connecting with a backend.
